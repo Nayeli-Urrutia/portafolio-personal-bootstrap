@@ -1,1 +1,492 @@
-/* Personalizaciones del portafolio personal */
+/* ==================================================
+   VARIABLES Y CONFIGURACIÓN GENERAL
+================================================== */
+
+:root {
+    --color-primary: #6f42c1;
+    --color-primary-dark: #4c2a85;
+    --color-secondary: #f4effc;
+    --color-accent: #d7c4f3;
+    --color-dark: #211832;
+    --color-text: #3f3f46;
+    --color-light: #faf9fc;
+    --color-white: #ffffff;
+    --shadow-soft: 0 10px 30px rgba(33, 24, 50, 0.12);
+    --shadow-hover: 0 16px 38px rgba(33, 24, 50, 0.2);
+    --border-radius: 18px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color-text);
+    background-color: var(--color-white);
+    line-height: 1.7;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+section {
+    scroll-margin-top: 75px;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--color-dark);
+}
+
+h2 {
+    position: relative;
+}
+
+a {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* ==================================================
+   ACCESIBILIDAD
+================================================== */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 4px;
+}
+
+/* ==================================================
+   NAVBAR
+================================================== */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: linear-gradient(
+            90deg,
+            var(--color-primary-dark),
+            var(--color-primary)
+    );
+    box-shadow: 0 4px 18px rgba(33, 24, 50, 0.2);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.4px;
+}
+
+.navbar .nav-link {
+    position: relative;
+    margin-left: 8px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: var(--color-white);
+}
+
+.navbar .nav-link::after {
+    content: "";
+    position: absolute;
+    right: 8px;
+    bottom: 5px;
+    left: 8px;
+    height: 2px;
+    background-color: var(--color-white);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link:focus::after {
+    transform: scaleX(1);
+}
+
+/* ==================================================
+   ENCABEZADO PRINCIPAL
+================================================== */
+
+#inicio {
+    min-height: 590px;
+    display: flex;
+    align-items: center;
+}
+
+header {
+    background:
+            radial-gradient(
+                    circle at top right,
+                    rgba(215, 196, 243, 0.75),
+                    transparent 35%
+            ),
+            linear-gradient(
+                    135deg,
+                    var(--color-light),
+                    var(--color-secondary)
+            );
+}
+
+#inicio h1 {
+    line-height: 1.15;
+    animation: aparecerIzquierda 0.9s ease both;
+}
+
+#inicio .lead {
+    color: var(--color-primary-dark);
+    font-weight: 600;
+}
+
+#inicio p {
+    max-width: 650px;
+}
+
+#inicio .btn-primary {
+    padding: 11px 24px;
+    border: 0;
+    border-radius: 50px;
+    background: linear-gradient(
+            90deg,
+            var(--color-primary-dark),
+            var(--color-primary)
+    );
+    box-shadow: 0 8px 20px rgba(111, 66, 193, 0.25);
+}
+
+#inicio .btn-primary:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(
+            90deg,
+            var(--color-primary),
+            var(--color-primary-dark)
+    );
+}
+
+#inicio img {
+    width: 280px;
+    height: 280px;
+    margin-inline: auto;
+    object-fit: cover;
+    border: 7px solid var(--color-white);
+    box-shadow: var(--shadow-soft);
+    animation: aparecerDerecha 0.9s ease both;
+}
+
+/* ==================================================
+   BIOGRAFÍA
+================================================== */
+
+#biografia {
+    background-color: var(--color-white);
+}
+
+#biografia h2::after,
+#habilidades h2::after,
+#proyectos h2::after,
+#vision h2::after {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 4px;
+    margin: 12px auto 0;
+    border-radius: 10px;
+    background: linear-gradient(
+            90deg,
+            var(--color-primary),
+            var(--color-accent)
+    );
+}
+
+#biografia p {
+    font-size: 1.05rem;
+    text-align: justify;
+}
+
+/* ==================================================
+   HABILIDADES
+================================================== */
+
+#habilidades {
+    background-color: var(--color-light);
+}
+
+.card {
+    overflow: hidden;
+    border: 0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+    transition:
+            transform 0.35s ease,
+            box-shadow 0.35s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card-body {
+    padding: 1.6rem;
+}
+
+.list-group-item {
+    padding: 15px 5px;
+    background-color: transparent;
+    border-color: rgba(111, 66, 193, 0.15);
+}
+
+#habilidades .badge {
+    white-space: normal;
+}
+
+#habilidades .text-bg-primary {
+    background-color: var(--color-primary);
+}
+
+#habilidades .text-bg-dark {
+    background-color: var(--color-dark);
+}
+
+/* ==================================================
+   PROYECTOS
+================================================== */
+
+#proyectos {
+    background: linear-gradient(
+            180deg,
+            var(--color-secondary),
+            var(--color-white)
+    );
+}
+
+#proyectos .card-img-top {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 4px solid var(--color-primary);
+}
+
+#proyectos .card-title {
+    color: var(--color-primary-dark);
+    font-weight: 700;
+}
+
+#proyectos .card-text {
+    margin-bottom: 22px;
+}
+
+#proyectos .badge {
+    padding: 9px 14px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+}
+
+/* ==================================================
+   VISIÓN PROFESIONAL
+================================================== */
+
+#vision {
+    min-height: 470px;
+    display: flex;
+    align-items: center;
+}
+
+#vision h2::after {
+    margin-left: 0;
+}
+
+#vision .bi-rocket-takeoff {
+    display: inline-block;
+    color: var(--color-primary);
+    filter: drop-shadow(0 10px 10px rgba(111, 66, 193, 0.25));
+    animation: flotar 3s ease-in-out infinite;
+}
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+footer {
+    background: linear-gradient(
+            135deg,
+            var(--color-dark),
+            var(--color-primary-dark)
+    );
+}
+
+footer h2 {
+    color: var(--color-white);
+}
+
+footer a {
+    display: inline-flex;
+    width: 46px;
+    height: 46px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+footer a:hover,
+footer a:focus {
+    color: var(--color-dark);
+    background-color: var(--color-white);
+    transform: translateY(-4px);
+}
+
+footer hr {
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ==================================================
+   ANIMACIONES
+================================================== */
+
+@keyframes aparecerIzquierda {
+    from {
+        opacity: 0;
+        transform: translateX(-35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes aparecerDerecha {
+    from {
+        opacity: 0;
+        transform: translateX(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes flotar {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* ==================================================
+   DISEÑO RESPONSIVE
+================================================== */
+
+/* Teléfonos pequeños: 320 px en adelante */
+@media (max-width: 575.98px) {
+    body {
+        font-size: 0.95rem;
+    }
+
+    #inicio {
+        min-height: auto;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    #inicio h1 {
+        font-size: 2rem;
+        overflow-wrap: anywhere;
+    }
+
+    #inicio img {
+        width: 210px;
+        height: 210px;
+    }
+
+    #biografia p {
+        text-align: left;
+    }
+
+    #habilidades .list-group-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    #proyectos .card-img-top {
+        height: 190px;
+    }
+
+    #vision {
+        min-height: auto;
+    }
+
+    #vision h2::after {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    #vision h2 {
+        text-align: center;
+    }
+}
+
+/* Tablets: aproximadamente 768 px */
+@media (min-width: 576px) and (max-width: 991.98px) {
+    #inicio {
+        min-height: 520px;
+    }
+
+    #inicio h1 {
+        font-size: 2.5rem;
+    }
+
+    #inicio img {
+        width: 240px;
+        height: 240px;
+    }
+
+    #proyectos .card-img-top {
+        height: 210px;
+    }
+}
+
+/* Pantallas grandes: 1200 px en adelante */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1180px;
+    }
+
+    #inicio h1 {
+        font-size: 3.4rem;
+    }
+
+    #inicio img {
+        width: 310px;
+        height: 310px;
+    }
+}
+
+/* Reduce animaciones según preferencia del usuario */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms;
+        animation-iteration-count: 1;
+        transition-duration: 0.01ms;
+    }
+}
